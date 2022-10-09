@@ -44,7 +44,7 @@ class CategoryController extends Controller
         //     $category->tournaments()->attach($id);
         // }
 
-        // $category = $category->load('tournaments:name');
+        $category = $category->load('tournaments:name');
 
         return $category;
 

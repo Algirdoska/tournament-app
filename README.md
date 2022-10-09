@@ -1,66 +1,386 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 1.1. Sistemos paskirtis
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Projekto tikslas – palengvinti turnyro eigos atvaizdavimą ir peržiūrą.
+Veikimo principas – pačią kuriamą platformą sudaro dvi dalys: internetinė aplikacija, kuria naudosis žaidėjai, administratorius bei aplikacijų programavimo sąsaja (angl. trump. API).
+Naudotojas, norėdamas naudotis šia platforma, prisiregistruos prie internetinės aplikacijos ir galės sukurti turnyrus pasirinkdamas turnyro kategoriją ir dydį ir sukurti komandas.
 
-## About Laravel
+## 1.2.Funkciniai reikalavimai
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Svečias galės:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1.	Peržiūrėti pagrindinį puslapį.
+2.	Peržiūrėti turnyrų kategorijas
+3.	Peržiūrėti turnyrus.
+4.	Prisijungti ir prisiregistruoti prie internetinės aplikacijos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Registruotas naudotojas galės:
 
-## Learning Laravel
+1.	Atsijungti nuo internetinės aplikacijos;
+2.	Sukurti turnyrą:
+3.	Nustatyti turnyro dydį;
+4.	Valdyti savo sukurtus turnyrus;
+5.	Pridėti dalyvaujančias komandas;
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Administratorius galės:
+1.	Valdyti turnyrus
+2.	Valdyti naudotojus.
+3.	Valdyti turnyrų kategorijas
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# 2.	Sistemos architektūra
 
-## Laravel Sponsors
+###  Sistemos sudedamosios dalys:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+•	Kliento pusė (ang. Front-End) – naudojant React.js;
 
-### Premium Partners
+•	Serverio pusė (angl. Back-End) – naudojant PHP Laravel. Duomenų bazė – MySQL.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+2.1 pav. pavaizduota kuriamos sistemos diegimo diagrama. Sistemos talpinimui yra naudojamas Azure serveris. Kiekviena sistemos dalis yra diegiama tame pačiame serveryje. Internetinė aplikacija yra pasiekiama per HTTP protokolą. Šios sistemos veikimui (pvz., duomenų manipuliavimui su duomenų baze) yra reikalingas API, kuris pasiekiamas per aplikacijų programavimo sąsają. Pats API vykdo duomenų mainus su duomenų baze - tam naudojama ORM sąsaja.
+ 
 
-## Contributing
+ ![](Pictures\Picture1.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2.1 pav. Sistemos diegimo diagrama
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+# API
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Category
 
-## License
+URL: api/categories
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Metodas: GET
+
+Gražina visą kategorijų sąrašą
+
+Užklausos atsakymas
+
+```json
+{
+        "id": 1,
+        "title": "Action",
+        "created_at": "2022-10-09T13:47:30.000000Z",
+        "updated_at": "2022-10-09T13:47:30.000000Z",
+        "tournaments": [
+            {
+                "name": "ULTIMATE DOOM SPEEDRUN"
+            },
+            {
+                "name": "CS:GO knifes only"
+            },
+            {
+                "name": "WOW raid race"
+            },
+            {
+                "name": "League of Legends championship"
+            },
+            {
+                "name": "testing"
+            }
+        ]
+    }
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai: 404
+
+---
+
+URL: api/categories
+
+Metodas: POST
+
+Įdeda naują kategoriją į duomenų bazę
+
+Užklausos atsakymas
+
+```json
+{
+    "title": "test",
+    "updated_at": "2022-10-09T21:05:44.000000Z",
+    "created_at": "2022-10-09T21:05:44.000000Z",
+    "id": 8,
+    "tournaments": []
+}
+```
+
+Atsakymo kodas: 201
+
+Klaidų kodai: 422 
+
+---
+
+URL: api/categories/{id}
+
+Metodas: PUT
+
+Atnaujina kategoriją duomenų bazėje
+
+Užklausos atsakymas
+
+```json
+{
+{
+    "id": 8,
+    "title": "test",
+    "created_at": "2022-10-09T21:05:44.000000Z",
+    "updated_at": "2022-10-09T21:05:44.000000Z",
+    "tournaments": []
+}
+}
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai: 422; 404 
+
+---
+
+URL: api/categories/{id}
+
+Metodas: DELETE
+
+Ištrina kategoriją iš duomenų bazės
+
+Užklausos atsakymas
+
+```
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai:  404 
+
+---
+
+## Tournament
+
+URL: api/tournaments
+
+Metodas: GET
+
+Gražina visą turnyrų sąrašą
+
+Užklausos atsakymas
+
+```json
+ {
+        "id": 1,
+        "name": "ULTIMATE DOOM SPEEDRUN",
+        "created_at": "2022-10-09T13:49:54.000000Z",
+        "updated_at": "2022-10-09T13:49:54.000000Z",
+        "categories": [
+            {
+                "title": "Action"
+            },
+            {
+                "title": "SinglePlayer"
+            }
+        ],
+        "teams": [
+            {
+                "name": "DrLa"
+            },
+            {
+                "name": "visconic"
+            }
+        ]
+    }
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai: 404
+
+---
+
+URL: api/tournaments
+
+Metodas: POST
+
+Įdeda naują turnyrą į duomenų bazę
+
+Užklausos atsakymas
+
+```json
+{
+    "name": "test",
+    "updated_at": "2022-10-09T21:17:09.000000Z",
+    "created_at": "2022-10-09T21:17:09.000000Z",
+    "id": 8,
+    "categories": [
+        {
+            "title": "Action"
+        },
+        {
+            "title": "RPG"
+        }
+    ]
+}
+```
+
+Atsakymo kodas: 201
+
+Klaidų kodai: 422; 404
+
+---
+
+URL: api/tournaments/{id}
+
+Metodas: PUT
+
+Atnaujina turnyrą duomenų bazėje
+
+Užklausos atsakymas
+
+```json
+{
+    "id": 9,
+    "name": "test",
+    "created_at": "2022-10-09T21:17:34.000000Z",
+    "updated_at": "2022-10-09T21:17:34.000000Z",
+    "categories": [
+        {
+            "title": "Action"
+        },
+        {
+            "title": "RPG"
+        }
+    ],
+    "teams": [
+        {
+            "name": "DrLa"
+        },
+        {
+            "name": "visconic"
+        }
+    ]
+}
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai: 422; 404 
+
+---
+
+URL: api/tournaments/{id}
+
+Metodas: DELETE
+
+Ištrina turnyrą iš duomenų bazės
+
+Užklausos atsakymas
+
+```
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai:  404 
+
+---
+
+## Team
+
+URL: api/team
+
+Metodas: GET
+
+Gražina visą komandų sąrašą
+
+Užklausos atsakymas
+
+```json
+ {
+        "id": 1,
+        "name": "DrLa",
+        "created_at": "2022-10-09T13:52:16.000000Z",
+        "updated_at": "2022-10-09T13:52:16.000000Z",
+        "tournaments": [
+            {
+                "name": "ULTIMATE DOOM SPEEDRUN"
+            },
+            {
+                "name": "test"
+            }
+        ]
+    },
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai: 404
+
+---
+
+URL: api/teams
+
+Metodas: POST
+
+Įdeda naują komandą į duomenų bazę
+
+Užklausos atsakymas
+
+```json
+{
+    "name": "testing team",
+    "updated_at": "2022-10-09T21:31:52.000000Z",
+    "created_at": "2022-10-09T21:31:52.000000Z",
+    "id": 3
+}
+```
+
+Atsakymo kodas: 201
+
+Klaidų kodai: 422; 404
+
+---
+
+URL: api/teams/{id}
+
+Metodas: PUT
+
+Atnaujina komandą duomenų bazėje
+
+Užklausos atsakymas
+
+```json
+{
+    "id": 3,
+    "name": "testing team",
+    "created_at": "2022-10-09T21:31:52.000000Z",
+    "updated_at": "2022-10-09T21:31:52.000000Z",
+    "tournaments": [
+        {
+            "name": "WOW raid race"
+        }
+    ]
+}
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai: 422; 404 
+
+---
+
+URL: api/teams/{id}
+
+Metodas: DELETE
+
+Ištrina komandą iš duomenų bazės
+
+Užklausos atsakymas
+
+```
+```
+
+Atsakymo kodas: 200
+
+Klaidų kodai:  404 
+
+---

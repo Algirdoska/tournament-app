@@ -74,7 +74,7 @@ class TournamentController extends Controller
     {
             $request->validate([
                 'name'=>'required|string',
-                'categories'=>'nullable|array',
+                'categories'=>'required|array',
                 'teams'=>'nullable|array',
             ]);
 
