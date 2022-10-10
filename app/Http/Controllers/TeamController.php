@@ -76,12 +76,13 @@ class TeamController extends Controller
             ]);
 
             $tournaments=[];
+            if($request->tournaments != null)
             foreach ($request->tournaments as $id) {
                 Tournament::findOrFail($id);
                 array_push($tournaments, $id) ;
             }
 
-            $team->tournaments()->sync($team);
+            $team->tournaments()->sync($tournaments);
 
             $team->update($request->all());
 

@@ -88,6 +88,7 @@ class TournamentController extends Controller
 
 
             $teams=[];
+            if($request->teams != null)
             foreach ($request->teams as $id) {
                 Team::findOrFail($id);
                 array_push($teams, $id) ;
