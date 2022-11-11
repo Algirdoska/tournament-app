@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Tournament;
 use App\Models\Team;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,10 +26,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        Category::factory()->hasTournaments(3)->create();
+        // Category::factory()->hasTournaments(3)->create();
 
-        Tournament::factory()->hasCategories(3)->create();
+        // Tournament::factory()->hasCategories(3)->create();
 
-        Team::factory()->hasTournaments(3)->create();
+        // Team::factory()->hasTournaments(3)->create();
+
+        User::factory(1)->isAdmin()->create();
+
+        User::factory(3)->create();
     }
 }

@@ -5,10 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Tournament;
 use Illuminate\Http\Request;
+use App\Policies\CategoryPolicy;
 
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+        $this->authorizeResource(Category::class);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
