@@ -42,9 +42,7 @@ class CategoryPolicy
      */
     public function create(User $user)
     {
-        return $user->role == "admin"
-        ? Response::allow()
-        : Response::deny('YOU SHALL NOT PASS');
+        return $user->role == "admin";
     }
 
     /**
