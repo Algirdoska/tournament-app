@@ -384,3 +384,37 @@ Atsakymo kodas: 200
 Klaidų kodai:  404 
 
 ---
+
+Naudotojo sąsajos projektas (projektuojamos sąsajos langų wireframe`ai) <input type="checkbox"> 
+
+Sukurti naudotojo sąsajos sprendimą realizuotam REST API <input type="checkbox" > 
+
+Responsive layout (bent 1 breakpoint`as, pvz. ties 768px) <input type="checkbox" > 
+
+Images prisitaikymas (max-width taisyklė, kad paveikslėlis mažėtų neišlipdamas iš savo konteinerio elemento) <input type="checkbox" > 
+
+Header, Content, Footer srityse stilius turėtų būti skirtingas (specifiškas). Srityse turėtų būti bent po keletą skirtingų elementų. Analogiški elementai skirtingose srityse turėtų įgauti skirtingą išvaizdą. <input type="checkbox" > 
+
+Realizuoti informacijos įvedimo sąsają, bent su keletu skirtingų tipų input elementų. <input type="checkbox" > 
+
+Panaudoti transitions arba animacijas, pagyvinančius naudotojo sąsają (UI) <input type="checkbox" > 
+
+Padarytas responsive meniu (desktop: horizontalūs punktai, mobile: hamburger)  <input type="checkbox" > 
+
+Panaudoti vektorines ikonas (webfont, svg). <input type="checkbox" > 
+
+Panaudotas kitoks šriftas (google fonts arba savo sugeneruotas) <input type="checkbox" > 
+
+Panaudoti modalinį langą, kuriame pateikiama aktuali/prasminga informacija. <input type="checkbox" > 
+
+Parinkti tarpusavyje besiderinančias spalvas. <input type="checkbox" > 
+
+UI elementai negali išsimėtyti, išdėstymas turi paklusti tinklelio horizontalioms ir vertikalioms linijoms. <input type="checkbox" > 
+
+Elementų matomumas ir pasiekiamumas neturi būti apsunkintas. <input type="checkbox" > 
+
+Įvedimo formos turi būti aiškios ir nuoseklios. <input type="checkbox" > 
+
+Naudotojo sąsajos grafinis dizainas turi būti vientisas, atitikti projekto užduotį <input type="checkbox" > 
+
+Projekto kodas turi būti laikomas Git saugykloje (github, bitbucket, gitlab ar kt.). Dokumentacija - projektui sukurtame wiki arba projekto kodo Git saugykloje (.readme). <input type="checkbox" > 
