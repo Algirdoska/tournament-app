@@ -7,9 +7,9 @@
         <title>Laravel 9 vite with react</title>
 
         @viteReactRefresh
-        @vite('resources/js/app.jsx')
+        @vite('resources/js/main.jsx')
     </head>
     <body>
-        <div id="app"></div>
+        <div id="root"></div>
     </body>
 </html>
