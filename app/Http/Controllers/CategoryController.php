@@ -15,7 +15,6 @@ class CategoryController extends Controller
     {
         $this->middleware('auth:api');
         $this->authorizeResource(Category::class);
-
     }
 
     /**
@@ -41,7 +40,7 @@ class CategoryController extends Controller
     {
 
         $request->validate([
-            'title'=>'required|string',
+            'title' => 'required|string',
             // 'tournaments'=>'nullable|array',
 
         ]);
@@ -56,7 +55,6 @@ class CategoryController extends Controller
         $category = $category->load('tournaments:name');
 
         return $category;
-
     }
 
     /**
@@ -68,7 +66,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
 
-        $category = $category->load('tournaments:name');
+        $category = $category->load('tournaments:id,name');
 
         return $category;
     }
@@ -82,23 +80,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-            $request->validate([
-                'title'=>'required|string',
-                // 'tournaments'=>'nullable|array',
-            ]);
+        $request->validate([
+            'title' => 'required|string',
+            // 'tournaments'=>'nullable|array',
+        ]);
 
-            // $tournaments=[];
-            // foreach ($request->tournaments as $id) {
-            //     Tournament::findOrFail($id);
-            //     array_push($tournaments, $id) ;
-            // }
+        // $tournaments=[];
+        // foreach ($request->tournaments as $id) {
+        //     Tournament::findOrFail($id);
+        //     array_push($tournaments, $id) ;
+        // }
 
-            // $category->tournaments()->sync($tournaments);
+        // $category->tournaments()->sync($tournaments);
 
-            $category->update($request->all());
+        $category->update($request->all());
 
-            $category = $category->load('tournaments:name');
-            return $category;
+        $category = $category->load('tournaments:name');
+        return $category;
     }
 
     /**

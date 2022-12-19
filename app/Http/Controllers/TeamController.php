@@ -14,7 +14,7 @@ class TeamController extends Controller
         $this->middleware('auth:api');
     }
 
-      /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -37,7 +37,7 @@ class TeamController extends Controller
     {
 
         $request->validate([
-            'name'=>'required|string',
+            'name' => 'required|string',
         ]);
 
         $team = Team::create($request->all());
@@ -50,7 +50,6 @@ class TeamController extends Controller
         // $tournament = $tournament->load('categories:title');
 
         return $team;
-
     }
 
     /**
@@ -76,24 +75,24 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-            $request->validate([
-                'name'=>'required|string',
-                'tournaments'=>'nullable|array',
-            ]);
+        $request->validate([
+            'name' => 'required|string',
+            'tournaments' => 'nullable|array',
+        ]);
 
-            $tournaments=[];
-            if($request->tournaments != null)
+        $tournaments = [];
+        if ($request->tournaments != null)
             foreach ($request->tournaments as $id) {
                 Tournament::findOrFail($id);
-                array_push($tournaments, $id) ;
+                array_push($tournaments, $id);
             }
 
-            $team->tournaments()->sync($tournaments);
+        $team->tournaments()->sync($tournaments);
 
-            $team->update($request->all());
+        $team->update($request->all());
 
-            $team = $team->load('tournaments:name');
-            return $team;
+        $team = $team->load('tournaments:name');
+        return $team;
     }
 
     /**
