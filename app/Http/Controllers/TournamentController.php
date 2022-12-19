@@ -16,7 +16,7 @@ class TournamentController extends Controller
     }
 
 
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -24,7 +24,7 @@ class TournamentController extends Controller
     public function index()
     {
 
-        $tournaments = Tournament::all()->load('categories:title', 'teams:name');
+        $tournaments = Tournament::all()->load('categories:id,title', 'teams:name');
 
         return $tournaments;
     }
@@ -39,8 +39,8 @@ class TournamentController extends Controller
     {
 
         $request->validate([
-            'name'=>'required|string',
-            'categories'=>'required|array',
+            'name' => 'required|string',
+            'categories' => 'required|array',
         ]);
 
         $tournament = Tournament::create($request->all());
@@ -53,7 +53,6 @@ class TournamentController extends Controller
         $tournament = $tournament->load('categories:title');
 
         return $tournament;
-
     }
 
     /**
@@ -65,7 +64,7 @@ class TournamentController extends Controller
     public function show(Tournament $tournament)
     {
 
-        $tournament = $tournament->load('categories:title', 'teams:name');
+        $tournament = $tournament->load('categories:id,title', 'teams:id,name');
 
         return $tournament;
     }
@@ -79,35 +78,35 @@ class TournamentController extends Controller
      */
     public function update(Request $request, Tournament $tournament)
     {
-            $request->validate([
-                'name'=>'required|string',
-                'categories'=>'required|array',
-                'teams'=>'nullable|array',
-            ]);
+        $request->validate([
+            'name' => 'required|string',
+            'categories' => 'required|array',
+            'teams' => 'nullable|array',
+        ]);
 
-            $categories=[];
-            foreach ($request->categories as $id) {
-                Category::findOrFail($id);
-                array_push($categories, $id) ;
-            }
+        $categories = [];
+        foreach ($request->categories as $id) {
+            Category::findOrFail($id);
+            array_push($categories, $id);
+        }
 
-            $tournament->categories()->sync($categories);
+        $tournament->categories()->sync($categories);
 
 
-            $teams=[];
-            if($request->teams != null)
+        $teams = [];
+        if ($request->teams != null)
             foreach ($request->teams as $id) {
                 Team::findOrFail($id);
-                array_push($teams, $id) ;
+                array_push($teams, $id);
             }
 
-            $tournament->teams()->sync($teams);
+        $tournament->teams()->sync($teams);
 
 
-            $tournament->update($request->all());
+        $tournament->update($request->all());
 
-            $tournament = $tournament->load('categories:title', 'teams:name');
-            return $tournament;
+        $tournament = $tournament->load('categories:title', 'teams:name');
+        return $tournament;
     }
 
     /**
