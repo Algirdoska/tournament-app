@@ -37,7 +37,7 @@ Naudotojas, norėdamas naudotis šia platforma, prisiregistruos prie internetin�
 
 2.1 pav. pavaizduota kuriamos sistemos diegimo diagrama. Sistemos talpinimui yra naudojamas Azure serveris. Kiekviena sistemos dalis yra diegiama tame pačiame serveryje. Internetinė aplikacija yra pasiekiama per HTTP protokolą. Šios sistemos veikimui (pvz., duomenų manipuliavimui su duomenų baze) yra reikalingas API, kuris pasiekiamas per aplikacijų programavimo sąsają. Pats API vykdo duomenų mainus su duomenų baze - tam naudojama ORM sąsaja.
 
-![](Pictures\Picture1.png)
+![picture](Pictures\Picture1.png)
 
 2.1 pav. Sistemos diegimo diagrama
 
