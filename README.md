@@ -394,35 +394,35 @@ Klaidų kodai: 404
 
 ## "Home" kai neprisijungta
 
-![](Pictures\Home_not_logged_in.jpg)
+![](Pictures/Home_not_logged_in.jpg)
 
 ## "Login"
 
-![](Pictures\login.jpg)
+![](Pictures/login.jpg)
 
 ## "Register"
 
-![](Pictures\Register.jpg)
+![](Pictures/Register.jpg)
 
 ## "Home" kai prisijungta
 
-![](Pictures\Home_logged_in.jpg)
+![](Pictures/Home_logged_in.jpg)
 
 ## "Categories"
 
-![](Pictures\Categories.jpg)
+![](Pictures/Categories.jpg)
 
 ## "Tournaments"
 
-![](Pictures\Tournaments.jpg)
+![](Pictures/Tournaments.jpg)
 
 ## "Tournaments" paspaudzius ant kazkurios kategorijos
 
-![](Pictures\Tournaments_after_click.jpg)
+![](Pictures/Tournaments_after_click.jpg)
 
 ## "Teams"
 
-![](Pictures\Teams.jpg)
+![](Pictures/Teams.jpg)
 
 ---
 
@@ -432,35 +432,35 @@ Klaidų kodai: 404
 
 ## "Home" kai neprisijungta
 
-![](Pictures\real\Home_not_logged_in.jpg)
+![](Pictures/real/Home_not_logged_in.jpg)
 
 ## "Login"
 
-![](Pictures\real\Login.jpg)
+![](Pictures/real/Login.jpg)
 
 ## "Register"
 
-![](Pictures\real\Register.jpg)
+![](Pictures/real/Register.jpg)
 
 ## "Home" kai prisijungta
 
-![](Pictures\real\Home_logged_in.jpg)
+![](Pictures/real/Home_logged_in.jpg)
 
 ## "Categories"
 
-![](Pictures\real\Categories.jpg)
+![](Pictures/real/Categories.jpg)
 
 ## "Tournaments"
 
-![](Pictures\real\Tournaments.jpg)
+![](Pictures/real/Tournaments.jpg)
 
 ## "Tournaments" paspaudzius ant kazkurios kategorijos
 
-![](Pictures\real\Tournaments_after_click.jpg)
+![](Pictures/real/Tournaments_after_click.jpg)
 
 ## "Teams"
 
-![](Pictures\real\Teams.jpg)
+![](Pictures/real/Teams.jpg)
 
 ---
 
