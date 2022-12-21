@@ -8,40 +8,38 @@ Naudotojas, norėdamas naudotis šia platforma, prisiregistruos prie internetin�
 
 ### Svečias galės:
 
-1.	Peržiūrėti pagrindinį puslapį.
-2.	Peržiūrėti turnyrų kategorijas
-3.	Peržiūrėti turnyrus.
-4.	Prisijungti ir prisiregistruoti prie internetinės aplikacijos.
+1. Peržiūrėti pagrindinį puslapį.
+2. Peržiūrėti kategorijų turnyrus
+3. Peržiūrėti turnyrus.
+4. Prisijungti ir prisiregistruoti prie internetinės aplikacijos.
 
 ### Registruotas naudotojas galės:
 
-1.	Atsijungti nuo internetinės aplikacijos;
-2.	Sukurti turnyrą:
-3.	Nustatyti turnyro dydį;
-4.	Valdyti savo sukurtus turnyrus;
-5.	Pridėti dalyvaujančias komandas;
+1. Atsijungti nuo internetinės aplikacijos;
+2. Sukurti turnyrą:
+3. Nustatyti turnyro dydį;
+4. Valdyti savo sukurtus turnyrus;
+5. Pridėti dalyvaujančias komandas;
 
 ### Administratorius galės:
-1.	Valdyti turnyrus
-2.	Valdyti naudotojus.
-3.	Valdyti turnyrų kategorijas
 
+1. Valdyti turnyrus
+2. Valdyti naudotojus.
+3. Valdyti turnyrų kategorijas
 
-# 2.	Sistemos architektūra
+# 2. Sistemos architektūra
 
-###  Sistemos sudedamosios dalys:
+### Sistemos sudedamosios dalys:
 
-•	Kliento pusė (ang. Front-End) – naudojant React.js;
+• Kliento pusė (ang. Front-End) – naudojant React.js;
 
-•	Serverio pusė (angl. Back-End) – naudojant PHP Laravel. Duomenų bazė – MySQL.
+• Serverio pusė (angl. Back-End) – naudojant PHP Laravel. Duomenų bazė – MySQL.
 
 2.1 pav. pavaizduota kuriamos sistemos diegimo diagrama. Sistemos talpinimui yra naudojamas Azure serveris. Kiekviena sistemos dalis yra diegiama tame pačiame serveryje. Internetinė aplikacija yra pasiekiama per HTTP protokolą. Šios sistemos veikimui (pvz., duomenų manipuliavimui su duomenų baze) yra reikalingas API, kuris pasiekiamas per aplikacijų programavimo sąsają. Pats API vykdo duomenų mainus su duomenų baze - tam naudojama ORM sąsaja.
- 
 
- ![](Pictures\Picture1.png)
+![](Pictures\Picture1.png)
 
 2.1 pav. Sistemos diegimo diagrama
-
 
 ---
 
@@ -59,28 +57,28 @@ Užklausos atsakymas
 
 ```json
 {
-        "id": 1,
-        "title": "Action",
-        "created_at": "2022-10-09T13:47:30.000000Z",
-        "updated_at": "2022-10-09T13:47:30.000000Z",
-        "tournaments": [
-            {
-                "name": "ULTIMATE DOOM SPEEDRUN"
-            },
-            {
-                "name": "CS:GO knifes only"
-            },
-            {
-                "name": "WOW raid race"
-            },
-            {
-                "name": "League of Legends championship"
-            },
-            {
-                "name": "testing"
-            }
-        ]
-    }
+    "id": 1,
+    "title": "Action",
+    "created_at": "2022-10-09T13:47:30.000000Z",
+    "updated_at": "2022-10-09T13:47:30.000000Z",
+    "tournaments": [
+        {
+            "name": "ULTIMATE DOOM SPEEDRUN"
+        },
+        {
+            "name": "CS:GO knifes only"
+        },
+        {
+            "name": "WOW raid race"
+        },
+        {
+            "name": "League of Legends championship"
+        },
+        {
+            "name": "testing"
+        }
+    ]
+}
 ```
 
 Atsakymo kodas: 200
@@ -109,7 +107,7 @@ Užklausos atsakymas
 
 Atsakymo kodas: 201
 
-Klaidų kodai: 422 
+Klaidų kodai: 422
 
 ---
 
@@ -135,7 +133,7 @@ Užklausos atsakymas
 
 Atsakymo kodas: 200
 
-Klaidų kodai: 422; 404 
+Klaidų kodai: 422; 404
 
 ---
 
@@ -148,11 +146,12 @@ Ištrina kategoriją iš duomenų bazės
 Užklausos atsakymas
 
 ```
+
 ```
 
 Atsakymo kodas: 200
 
-Klaidų kodai:  404 
+Klaidų kodai: 404
 
 ---
 
@@ -167,28 +166,28 @@ Gražina visą turnyrų sąrašą
 Užklausos atsakymas
 
 ```json
- {
-        "id": 1,
-        "name": "ULTIMATE DOOM SPEEDRUN",
-        "created_at": "2022-10-09T13:49:54.000000Z",
-        "updated_at": "2022-10-09T13:49:54.000000Z",
-        "categories": [
-            {
-                "title": "Action"
-            },
-            {
-                "title": "SinglePlayer"
-            }
-        ],
-        "teams": [
-            {
-                "name": "DrLa"
-            },
-            {
-                "name": "visconic"
-            }
-        ]
-    }
+{
+    "id": 1,
+    "name": "ULTIMATE DOOM SPEEDRUN",
+    "created_at": "2022-10-09T13:49:54.000000Z",
+    "updated_at": "2022-10-09T13:49:54.000000Z",
+    "categories": [
+        {
+            "title": "Action"
+        },
+        {
+            "title": "SinglePlayer"
+        }
+    ],
+    "teams": [
+        {
+            "name": "DrLa"
+        },
+        {
+            "name": "visconic"
+        }
+    ]
+}
 ```
 
 Atsakymo kodas: 200
@@ -263,7 +262,7 @@ Užklausos atsakymas
 
 Atsakymo kodas: 200
 
-Klaidų kodai: 422; 404 
+Klaidų kodai: 422; 404
 
 ---
 
@@ -276,11 +275,12 @@ Ištrina turnyrą iš duomenų bazės
 Užklausos atsakymas
 
 ```
+
 ```
 
 Atsakymo kodas: 200
 
-Klaidų kodai:  404 
+Klaidų kodai: 404
 
 ---
 
@@ -364,7 +364,7 @@ Užklausos atsakymas
 
 Atsakymo kodas: 200
 
-Klaidų kodai: 422; 404 
+Klaidų kodai: 422; 404
 
 ---
 
@@ -377,44 +377,97 @@ Ištrina komandą iš duomenų bazės
 Užklausos atsakymas
 
 ```
+
 ```
 
 Atsakymo kodas: 200
 
-Klaidų kodai:  404 
+Klaidų kodai: 404
 
 ---
 
-Naudotojo sąsajos projektas (projektuojamos sąsajos langų wireframe`ai) <input type="checkbox"> 
+# 2. Naudotojo sąsajos projektas
 
-Sukurti naudotojo sąsajos sprendimą realizuotam REST API <input type="checkbox" > 
+## "Wireframes"
 
-Responsive layout (bent 1 breakpoint`as, pvz. ties 768px) <input type="checkbox" > 
+---
 
-Images prisitaikymas (max-width taisyklė, kad paveikslėlis mažėtų neišlipdamas iš savo konteinerio elemento) <input type="checkbox" > 
+## "Home" kai neprisijungta
 
-Header, Content, Footer srityse stilius turėtų būti skirtingas (specifiškas). Srityse turėtų būti bent po keletą skirtingų elementų. Analogiški elementai skirtingose srityse turėtų įgauti skirtingą išvaizdą. <input type="checkbox" > 
+![](Pictures\Home_not_logged_in.jpg)
 
-Realizuoti informacijos įvedimo sąsają, bent su keletu skirtingų tipų input elementų. <input type="checkbox" > 
+## "Login"
 
-Panaudoti transitions arba animacijas, pagyvinančius naudotojo sąsają (UI) <input type="checkbox" > 
+![](Pictures\login.jpg)
 
-Padarytas responsive meniu (desktop: horizontalūs punktai, mobile: hamburger)  <input type="checkbox" > 
+## "Register"
 
-Panaudoti vektorines ikonas (webfont, svg). <input type="checkbox" > 
+![](Pictures\Register.jpg)
 
-Panaudotas kitoks šriftas (google fonts arba savo sugeneruotas) <input type="checkbox" > 
+## "Home" kai prisijungta
 
-Panaudoti modalinį langą, kuriame pateikiama aktuali/prasminga informacija. <input type="checkbox" > 
+![](Pictures\Home_logged_in.jpg)
 
-Parinkti tarpusavyje besiderinančias spalvas. <input type="checkbox" > 
+## "Categories"
 
-UI elementai negali išsimėtyti, išdėstymas turi paklusti tinklelio horizontalioms ir vertikalioms linijoms. <input type="checkbox" > 
+![](Pictures\Categories.jpg)
 
-Elementų matomumas ir pasiekiamumas neturi būti apsunkintas. <input type="checkbox" > 
+## "Tournaments"
 
-Įvedimo formos turi būti aiškios ir nuoseklios. <input type="checkbox" > 
+![](Pictures\Tournaments.jpg)
 
-Naudotojo sąsajos grafinis dizainas turi būti vientisas, atitikti projekto užduotį <input type="checkbox" > 
+## "Tournaments" paspaudzius ant kazkurios kategorijos
 
-Projekto kodas turi būti laikomas Git saugykloje (github, bitbucket, gitlab ar kt.). Dokumentacija - projektui sukurtame wiki arba projekto kodo Git saugykloje (.readme). <input type="checkbox" > 
+![](Pictures\Tournaments_after_click.jpg)
+
+## "Teams"
+
+![](Pictures\Teams.jpg)
+
+---
+
+## Realizacijos
+
+---
+
+## "Home" kai neprisijungta
+
+![](Pictures\real\Home_not_logged_in.jpg)
+
+## "Login"
+
+![](Pictures\real\Login.jpg)
+
+## "Register"
+
+![](Pictures\real\Register.jpg)
+
+## "Home" kai prisijungta
+
+![](Pictures\real\Home_logged_in.jpg)
+
+## "Categories"
+
+![](Pictures\real\Categories.jpg)
+
+## "Tournaments"
+
+![](Pictures\real\Tournaments.jpg)
+
+## "Tournaments" paspaudzius ant kazkurios kategorijos
+
+![](Pictures\real\Tournaments_after_click.jpg)
+
+## "Teams"
+
+![](Pictures\real\Teams.jpg)
+
+---
+
+# Išvados
+
+Projekto serverinė dalis buvo įgyvendintas naudojantis "Laravel" karkasu. "Laravel" labai padėjo kurit šį projektą efektyviau ir greičiau.
+
+Kliento pusė buvo implementuota naudojantis "React" ir "Tailwind CSS" bibliotekomis. "React" yra pakankamai lengva naudotis ir leidžia sukurti puslapius greitai.
+
+"Tailwind CSS" yra paprasta išmokt, tačiau palyginus su naujesniomis bibliotekomis reikia rašyti daug, kad gauti geresnius rezultatus.
